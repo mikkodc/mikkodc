@@ -40,21 +40,42 @@
 }
 
 .btn {
- color: white;
  text-decoration:none;
  padding:15px 50px;
  font-size: 1em;
  font-weight: bold;
  text-transform: uppercase;
  letter-spacing: 2px;
- border: 2px solid #fff;
  position: relative;
  display: inline-block;
  vertical-align: middle;
+ border-radius: 4px;
+ transition: all 0.3s ease;
 }
 
-.btn-ghost {
+.btn-ghost,
+.btn-default {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  
+  &:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+  }
+}
+
+.btn-primary {
+  background: var(--accent-color);
   color: #fff;
+  border: 2px solid var(--accent-color);
+
+  &:hover {
+    background: darken(#11625a, 5%);
+    border-color: darken(#11625a, 5%);
+    color: #fff;
+  }
 }
 
 .btn-arrow-right {
@@ -75,12 +96,4 @@
     }
   }
 
-}
-
-.btn-default {
-  @include button-bg(transparent);
-}
-
-.btn-primary {
-   @include button-bg($primary);
 }

@@ -7,22 +7,22 @@
     <div class="nav-inner">
       <ul class="nav-list hover-ease">
         <li>
-          <a class="active" href="#home">Home</a>
+          <g-link class="active" to="/" @click.native="closeNav">Home</g-link>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#about" @click="closeNav">About</a>
         </li>
         <li>
-          <a href="#portfolio">Portfolio</a>
-        </li>
-        <li class="coming-soon">
-          <button href="#services" disabled>Playground</button>
-        </li>
-        <li class="coming-soon">
-          <button href="#services" disabled>Blog</button>
+          <a href="#portfolio" @click="closeNav">Portfolio</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <g-link to="/playground" @click.native="closeNav">Playground</g-link>
+        </li>
+        <li>
+          <g-link to="/blog" @click.native="closeNav">Blog</g-link>
+        </li>
+        <li>
+          <a href="#contact" @click="closeNav">Contact</a>
         </li>
       </ul>
 
@@ -80,6 +80,13 @@ export default {
   },
   components: {
     SocialLinks
+  },
+  methods: {
+    closeNav: function() {
+      if (this.navActive) {
+        this.$store.commit('toggleNav')
+      }
+    }
   }
 };
 </script>
@@ -99,7 +106,7 @@ export default {
   padding: 38px 30px 0 50px;
   box-sizing: border-box;
   color: #fff;
-  font-family: "ElenarLove", sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 
   &.slide-push-right {
     right: 0;

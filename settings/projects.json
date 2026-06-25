@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "title": "Oceanview Life",
+      "description": "A premium WordPress-based e-commerce and marketing platform tailored for modern lifestyle products. Features high-performance page loads, custom Gutenberg integration, and optimized assets.",
+      "longDescription": "Oceanview Life is a fully customized WordPress theme and ecosystem built specifically for lifestyle and consumer products. The project required deep customization of product taxonomies, a complex custom Visual Composer/Gutenberg page builder extension, and highly optimized image loading. The client required a flawless desktop-to-mobile response and page speeds under 1.5 seconds.",
+      "category": "WordPress / PHP",
+      "tags": ["WordPress", "PHP", "SCSS", "Visual Composer", "UX Design"],
+      "demoUrl": "https://oceanviewlife.com",
+      "githubUrl": ""
+    },
+    {
+      "title": "Sage SQL Financial Dashboard",
+      "description": "An interactive data visualization dashboard integrating real-time Sage ERP financial databases with modern web technologies.",
+      "longDescription": "A dashboard designed for financial analytics, extracting key transactional data directly from Sage ERP databases through optimized SQL queries and middleware. The project features responsive chart interfaces, automated PDF statement generation, and secure multi-role user authentication.",
+      "category": "Full-stack / Analytics",
+      "tags": ["Vue.js", "Node.js", "SQL Server", "Sage ERP", "Tailwind CSS"],
+      "demoUrl": "",
+      "githubUrl": "https://github.com/mikkodc/sage-sql-dashboard"
+    },
+    {
+      "title": "TCM Downloads Accordion Query",
+      "description": "A specialized WordPress plugin designed to query, filter, and display hierarchical product resources dynamically inside nested accordions.",
+      "longDescription": "This plugin optimizes files and product resources downloads for enterprise portals. Implements complex query filters to exclude nested sub-categories dynamically and includes a high-performance Vue-powered accordion layout for instantly filtering hundreds of documents on the fly.",
+      "category": "WordPress Plugin",
+      "tags": ["WordPress Plugin", "PHP", "Vue.js", "AJAX", "OpenSQL"],
+      "demoUrl": "",
+      "githubUrl": ""
+    },
+    {
+      "title": "Interactive SVG Canvas Sandbox",
+      "description": "A frontend playground experiment showcasing SVG filter morphs, canvas physics, and custom timing curves for micro-interactions.",
+      "longDescription": "An open-source interactive canvas designed for modern landing pages. Includes adjustable bezier curves, particle collision nodes, and dynamic CSS theme adjustments.",
+      "category": "Front-end / Interactive",
+      "tags": ["HTML5 Canvas", "CSS Animations", "SVG", "Vanilla JS"],
+      "demoUrl": "/playground/",
+      "githubUrl": "https://github.com/mikkodc/canvas-sandbox"
+    }
+  ]
+}

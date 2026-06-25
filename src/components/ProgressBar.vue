@@ -1,38 +1,35 @@
 <template>  
   <div class="profile__skills">
-    <div class="skillbar clearfix " data-percent="75%">
-      <div class="skillbar-title"><span>Wordpress</span></div>
-      <div class="skillbar-bar"></div>
-      <div class="skill-bar-percent">75%</div>
+    <div v-for="(skill, index) in skills" :key="index" class="skillbar clearfix">
+      <div class="skillbar-title"><span>{{ skill.name }}</span></div>
+      <div class="skillbar-bar" :style="{ width: animated ? skill.level + '%' : '0%' }"></div>
+      <div class="skill-bar-percent">{{ skill.level }}%</div>
     </div>
-    <div class="skillbar clearfix " data-percent="80%">
-      <div class="skillbar-title"><span>PSD to HTML</span></div>
-      <div class="skillbar-bar"></div>
-      <div class="skill-bar-percent">80%</div>
-    </div>
-    <div class="skillbar clearfix " data-percent="85%">
-      <div class="skillbar-title"><span>HTML5/CSS3</span></div>
-      <div class="skillbar-bar"></div>
-      <div class="skill-bar-percent">85%</div>
-    </div>
-    <div class="skillbar clearfix " data-percent="80%">
-      <div class="skillbar-title"><span>CSS/SVG Animation</span></div>
-      <div class="skillbar-bar"></div>
-      <div class="skill-bar-percent">80%</div>
-    </div>
-    <div class="skillbar clearfix " data-percent="65%">
-      <div class="skillbar-title"><span>Javascript</span></div>
-      <div class="skillbar-bar"></div>
-      <div class="skill-bar-percent">65%</div>
-    </div>
-    <small class="profile__skill--description">Left quite a lot room for improvements!</small>
-    <small class="profile__skill--description">Photo credits: <a href="https://www.facebook.com/tyronnesantella" target="_blank">Tyronne Santella</a></small>
+    <small class="profile__skill--description">Left quite a lot of room for improvements!</small>
+    <small class="profile__skill--description">Photo credits: <a href="https://www.facebook.com/tyronnesantella" target="_blank" rel="noopener">Tyronne Santella</a></small>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      animated: false,
+      skills: [
+        { name: 'Wordpress', level: 75 },
+        { name: 'PSD to HTML', level: 80 },
+        { name: 'HTML5/CSS3', level: 85 },
+        { name: 'CSS/SVG Animation', level: 80 },
+        { name: 'Javascript', level: 65 }
+      ]
+    }
+  },
+  mounted() {
+    // Trigger transition after render
+    setTimeout(() => {
+      this.animated = true;
+    }, 200);
+  }
 }
 </script>
 
@@ -48,14 +45,13 @@ export default {
  	width:100%;
  	height:35px;
  	margin-bottom:15px;
- 	transition:0.4s linear;
- 	transition-property:width, background-color;
  	border-radius:3px;
- 	background:#eee;
+ 	background: var(--border-color);
+  overflow: hidden;
 
   .skillbar-title,
   .skillbar-bar {
-    background-color: $primary;
+    background-color: var(--accent-color);
   }
 
   .skillbar-title {
@@ -65,9 +61,10 @@ export default {
   	color:#fff;
   	border-top-left-radius:3px;
   	border-bottom-left-radius:3px;
-  	background:#6adcfa;
+  	background: var(--accent-color);
   	font-size:13px;
   	font-weight:normal;
+    z-index: 2;
 
    span {
    	display:block;
@@ -75,7 +72,7 @@ export default {
    	padding:0 20px;
    	border-top-left-radius:3px;
    	border-bottom-left-radius:3px;
-   	background: lighten($primary, 10%);
+   	background: lighten(#11625a, 5%);
     letter-spacing: 1px;
    	line-height:35px;
    }
@@ -85,6 +82,8 @@ export default {
   	width:0px;
   	height:35px;
   	border-radius:3px;
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
   }
 
   .skill-bar-percent {
@@ -92,10 +91,11 @@ export default {
   	top:0;
   	right:10px;
   	height:35px;
-  	color:#444;
-  	color:rgba(0, 0, 0, 0.4);
+  	color: var(--text-primary);
+  	opacity: 0.6;
   	font-size:11px;
   	line-height:35px;
+    z-index: 2;
   }
  }
 </style>

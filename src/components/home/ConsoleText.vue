@@ -1,9 +1,9 @@
 <template>
-  <small
-    ><slot></slot>
+  <span class="console-wrapper">
+    <slot></slot>
     <span id="text"></span>
-    <div class="console-underscore" id="console">&#95;</div>
-  </small>
+    <span class="console-underscore" id="console">&#95;</span>
+  </span>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       titles: ["designer", "photographer", "music lover", "singer"],
-      titleColors: ["tomato", "#11625a", "lightblue", "#69c674"]
+      titleColors: ["tomato", "#30AEA2", "lightblue", "#69c674"]
     }
   },
   methods: {
@@ -23,8 +23,10 @@ export default {
       var x = 1;
       var waiting = false;
       var target = document.getElementById(id);
+      if (!target || !con) return;
       target.setAttribute("style", "color:" + colors[0]);
       window.setInterval(function() {
+        if (!target) return;
         if (letterCount === 0 && waiting === false) {
           waiting = true;
           target.innerHTML = words[0].substring(0, letterCount);
@@ -51,25 +53,42 @@ export default {
         }
       }, 120);
       window.setInterval(function() {
+        if (!con) return;
         if (visible === true) {
           con.className = "console-underscore hidden";
           visible = false;
         } else {
           con.className = "console-underscore";
-
           visible = true;
         }
       }, 400);
     }
   },
   mounted() {
-    this.consoleText(
-      this.titles,
-      "text",
-      this.titleColors
-    );
+    this.$nextTick(() => {
+      this.consoleText(
+        this.titles,
+        "text",
+        this.titleColors
+      );
+    });
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+.console-wrapper {
+  display: inline;
+  white-space: nowrap;
+}
+.console-underscore {
+  display: inline-block;
+  position: relative;
+  top: -0.05em;
+  left: 3px;
+  font-weight: bold;
+}
+.hidden {
+  opacity: 0;
+}
+</style>

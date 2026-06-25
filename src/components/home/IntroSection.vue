@@ -1,6 +1,6 @@
 <template>
-  <section id="intro-section" class="full-window">
-    <div class="inner-container center-content">
+  <section class="intro-section">
+    <div class="inner-container">
       <!-- Start Intro Text -->
       <h1 class="intro-title">Hi, I'm Mikko.<br> Freelance web developer <br>
       <ConsoleText>&#40; and a frustrated &#41; </ConsoleText>
@@ -33,18 +33,26 @@ export default {
 @import '~/styles/_animations.scss';
 @import '~/styles/_buttons.scss';
 
-#intro-section {
+.intro-section {
   position: relative;
-  background: #232526;
-  background: -webkit-linear-gradient(to bottom, #414345, #232526);
-  background: linear-gradient(to bottom, #414345, #232526);
-  min-height: 500px;
+  background: var(--bg-hero);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+
+  .inner-container {
+    width: 100%;
+  }
 
   @at-root .intro-title {
     font-size: calc(1em + 2.5vw);
-    font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-primary);
     position: relative;
+    transition: color 0.3s ease;
   }
 
   .intro-title {

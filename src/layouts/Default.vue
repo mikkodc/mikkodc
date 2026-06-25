@@ -38,40 +38,87 @@ export default {
     Nav,
     Contact,
     Footer
+  },
+  mounted() {
+    if (typeof window !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', this.$store.state.theme);
+    }
   }
 }
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import '~/styles/_variables.scss';
+
+:root {
+  --bg-primary: #151e1b;
+  --bg-secondary: #1a2421;
+  --bg-hero: linear-gradient(to bottom, #414345, #232526);
+  --bg-card: #202c28;
+  --text-primary: #ffffff;
+  --text-secondary: #8ba79d;
+  --text-muted: #627c73;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --header-btn-border: #ffffff;
+  --header-btn-text: #ffffff;
+  --accent-color: #30AEA2;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="light"] {
+  --bg-primary: #f5f8f7;
+  --bg-secondary: #ffffff;
+  --bg-hero: linear-gradient(to bottom, #e6edea, #cce0db);
+  --bg-card: #ffffff;
+  --text-primary: #1e2825;
+  --text-secondary: #4a5c56;
+  --text-muted: #738a82;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --header-btn-border: #11625a;
+  --header-btn-text: #11625a;
+  --accent-color: #11625a;
+  --shadow-color: rgba(0, 0, 0, 0.06);
+}
 
 * {
   box-sizing: border-box;
   outline: 0;
 }
 html,
-body,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 #app {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
   max-width: 100%;
 }
 body {
   position: relative;
   left: 0;
-  color: #2A3A3F;
-  font-family: 'Montserrat', 'Roboto', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-family: 'Outfit', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+h1, h2, h3, h4, h5, h6, .section-title, .intro-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 a {
   position: relative;
   text-decoration: none;
-  color: $primary;
+  color: var(--accent-color);
 }
 
 p {
   line-height: 1.6em;
+  color: var(--text-secondary);
 
   a {
     padding: 2px 3px;
@@ -88,7 +135,7 @@ img {
   */
 .full-window {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 .container {
   padding-left: 50px;

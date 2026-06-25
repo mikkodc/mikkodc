@@ -1,0 +1,34 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Optimizing WordPress Product Queries for Enterprise Portals",
+      "description": "How we resolved nested taxonomy performance bottlenecks and excluded subcategories programmatically in WooCommerce and custom page builders.",
+      "content": "WordPress taxonomy queries can quickly become bottlenecked when handling large product catalogs with deep nesting. In a recent project, we encountered an issue where fetching product resources for download accordion lists pulled files from nested child categories, cluttering the user interface and increasing query times. By hook-filtering the pre_get_posts action or custom WP_Query params and setting 'include_children' to false, we successfully isolated the parent category downloads. This reduced database query overhead by nearly 40% and resulted in a cleaner UX. Combining this with a transient caching layer ensures that category listings load almost instantly.",
+      "category": "WordPress",
+      "tags": ["WordPress", "PHP", "Performance", "SQL"],
+      "readTime": "4 min read",
+      "date": "June 24, 2026"
+    },
+    {
+      "id": "2",
+      "title": "Integrating Legacy ERP Databases with Modern Vue Dashboards",
+      "description": "A guide to building secure, fast, and real-time SQL dashboards for systems like Sage ERP without slowing down active transactions.",
+      "content": "Legacy ERP databases like Sage are highly critical, transaction-heavy environments. Directly querying these databases from user-facing dashboards can pose significant security and performance risks. The best approach is to build an intermediary database replica or set up a secure, read-only REST API microservice in Node.js. In this article, we walk through constructing a Node-MSSQL middleware using connection pooling and pre-compiled stored procedures. On the frontend, we use Vue 3 and Chart.js to map transactions, invoice aging, and sales figures into beautiful, responsive graphics that update in real-time, giving decision-makers high-fidelity insights without impacting production operations.",
+      "category": "Full-stack",
+      "tags": ["Vue.js", "Node.js", "SQL Server", "Sage ERP", "API"],
+      "readTime": "6 min read",
+      "date": "June 18, 2026"
+    },
+    {
+      "id": "3",
+      "title": "Unleashing the Power of CSS and SVG Micro-Animations",
+      "description": "Designing interactive animations that delight users and feel premium without sacrificing SEO or page load performance.",
+      "content": "Animations can elevate a website from standard to stunning, but they must be implemented with care. Heavy video backgrounds or bloated JS libraries can kill performance and SEO rankings. SVG path animations combined with CSS keyframes are the perfect solution: they are lightweight, scalable, and fully interactable. We explore using CSS custom properties combined with requestAnimationFrame to create organic feeling micro-interactions, like custom hamburger menu transforms, progress indicators that react to viewport entry, and letter-drawing console effects.",
+      "category": "Front-end",
+      "tags": ["CSS Animations", "SVG", "JavaScript", "UX Design"],
+      "readTime": "5 min read",
+      "date": "June 10, 2026"
+    }
+  ]
+}
